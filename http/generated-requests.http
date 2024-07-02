@@ -1,0 +1,95 @@
+###  USERS
+POST http://localhost:8080/api/users/
+Content-Type: application/json
+Username: admin
+Password: admin
+
+{
+  "username": "user1",
+  "email": "user1@user.com",
+  "password": "user"
+}
+
+###
+GET http://localhost:8080/api/users/
+Content-Type: application/json
+Authorization: YWRtaW46YWRtaW4=
+
+<> 2024-07-01T154724.200.json
+
+###
+POST http://localhost:8080/api/events/
+Content-Type: application/json
+Username: admin
+Password: admin
+
+{
+  "name": "Event 1",
+  "description": "event 1",
+  "acronym": "E1",
+  "url": "www.event1.com"
+}
+
+<> 2024-07-01T154254.200.json
+
+###  EDITIONS
+POST http://localhost:8080/api/editions/
+Content-Type: application/json
+Username: admin
+Password: admin
+
+{
+  "year": 2022,
+  "editionNumber": 1,
+  "startDate": "22/05/2022",
+  "endDate": "26/05/2022",
+  "city": "Niteroi",
+  "event_id": 1
+}
+
+###
+GET http://localhost:8080/api/editions/
+
+###  ACTIVITIES
+POST http://localhost:8080/api/activities/
+Content-Type: application/json
+
+{
+  "type": "SESSAO_TECNICA",
+  "name": "SESSAO TECNICA",
+  "description": "SESSAO",
+  "date": "23/05/2022",
+  "startTime": "09:00:00",
+  "endTime": "12:00:00",
+  "edition_id": 1,
+  "space_id": 1
+}
+
+<> 2024-07-01T154302.200.json
+
+###
+GET http://localhost:8080/api/activities/
+
+<> 2024-07-01T154306.200.json
+
+### SPACES
+POST http://localhost:8080/api/spaces/1
+Content-Type: application/json
+
+{
+  "name": "Hall of Fame",
+  "location": "Rio Centro",
+  "capacity": 1000,
+  "resources": []
+}
+
+<> 2024-07-01T154251.200.json
+
+###
+GET http://localhost:8080/api/spaces/
+
+
+###
+PATCH http://localhost:8080/api/users/1/activity/1
+
+<> 2024-07-01T154729.200.json
