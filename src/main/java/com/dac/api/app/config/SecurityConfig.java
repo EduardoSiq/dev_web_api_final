@@ -55,7 +55,7 @@ public class SecurityConfig {
             new AntPathRequestMatcher("/api/activities/**", "DELETE"),
     };
     private static final AntPathRequestMatcher[] USER_POST_WHITELIST = {
-            // organizer endpoints
+            // user endpoints
             new AntPathRequestMatcher("/api/users/**", "PATCH"),
             new AntPathRequestMatcher("/api/users/self/", "DELETE"),
             new AntPathRequestMatcher("/api/activities/**", "GET"),

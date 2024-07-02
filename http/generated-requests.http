@@ -1,4 +1,5 @@
 ###  USERS
+### insere usuários novos
 POST http://localhost:8080/api/users/
 Content-Type: application/json
 Username: admin
@@ -10,17 +11,18 @@ Password: admin
   "password": "user"
 }
 
-###
+### Lista Usuários
 GET http://localhost:8080/api/users/
 Content-Type: application/json
 Username: admin
 Password: admin
 
-###
+### Insere Evento
+### user inserindo Evento: deve dar 403
 POST http://localhost:8080/api/events/
 Content-Type: application/json
-Username: admin
-Password: admin
+Username: user
+Password: user
 
 {
   "name": "Event 1",
@@ -29,9 +31,66 @@ Password: admin
   "url": "www.event1.com"
 }
 
+### organizer inserindo Evento: deve dar 403
+POST http://localhost:8080/api/events/
+Content-Type: application/json
+Username: organizer
+Password: organizer
+
+{
+  "name": "Event 1",
+  "description": "event 1",
+  "acronym": "E1",
+  "url": "www.event1.com"
+}
+
+### admin inserindo Evento, deve permitir
+POST http://localhost:8080/api/events/
+Content-Type: application/json
+Username: admin
+Password: admin
+
+{
+"name": "Event 1",
+"description": "event 1",
+"acronym": "E1",
+"url": "www.event1.com"
+}
 <> 2024-07-01T154254.200.json
 
 ###  EDITIONS
+### user tenta inserir Edição, deve dar 403
+POST http://localhost:8080/api/editions/
+Content-Type: application/json
+Username: user
+Password: user
+
+{
+  "year": 2022,
+  "editionNumber": 1,
+  "startDate": "22/05/2022",
+  "endDate": "26/05/2022",
+  "city": "Niteroi",
+  "event_id": 1
+}
+
+### organizer tenta inserir Edição, deve dar 403
+POST http://localhost:8080/api/editions/
+Content-Type: application/json
+Username: organizer
+Password: organizer
+
+{
+  "year": 2022,
+  "editionNumber": 1,
+  "startDate": "22/05/2022",
+  "endDate": "26/05/2022",
+  "city": "Niteroi",
+  "event_id": 1
+}
+
+###  EDITIONS
+### admin tenta inserir Edição, deve permitir
 POST http://localhost:8080/api/editions/
 Content-Type: application/json
 Username: admin
@@ -46,10 +105,24 @@ Password: admin
   "event_id": 1
 }
 
-###
+### Lista edições
 GET http://localhost:8080/api/editions/
 
 ### SPACES
+### Admin tenta inserir espaço, deve dar forbidden
+POST http://localhost:8080/api/spaces/1
+Content-Type: application/json
+Username: admin
+Password: admin
+
+{
+  "name": "Hall of Fame",
+  "location": "Rio Centro",
+  "capacity": 1000,
+  "resources": []
+}
+
+### Organizer tenta inserir espaço, deve permitir
 POST http://localhost:8080/api/spaces/1
 Content-Type: application/json
 Username: organizer
@@ -64,7 +137,7 @@ Password: organizer
 
 <> 2024-07-01T154251.200.json
 
-###
+### Lista espaços
 GET http://localhost:8080/api/spaces/
 
 ###  ACTIVITIES
@@ -86,14 +159,14 @@ Password: organizer
 
 <> 2024-07-01T154302.200.json
 
-###
+###Usuário listando atividades
 GET http://localhost:8080/api/activities/
 Username: user
 Password: user
 
 <> 2024-07-01T154306.200.json
 
-###
+### Usuario tenta favoritar/desfavoritar atividade
 PATCH http://localhost:8080/api/users/activity/1/1
 Username: user
 Password: user
