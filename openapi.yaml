@@ -1,0 +1,4305 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /api/users/{id}:
+    get:
+      tags:
+        - User endpoints
+      description: Endpoint para exibição de usuários.
+      operationId: show
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+    put:
+      tags:
+        - User endpoints
+      description: Endpoint para atualização de usuários.
+      operationId: update
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSaveDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+    delete:
+      tags:
+        - User endpoints
+      description: Endpoint para remoção de usuários.
+      operationId: delete
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+  /api/spaces/{id}/edition/{editionId}:
+    put:
+      tags:
+        - Space endpoints
+      operationId: update_1
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: editionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpaceSaveDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+    delete:
+      tags:
+        - Space endpoints
+      operationId: delete_2
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: editionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+  /api/events/{id}:
+    get:
+      tags:
+        - Event endpoints
+      operationId: show_2
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+    put:
+      tags:
+        - Event endpoints
+      operationId: update_2
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventSaveDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+    delete:
+      tags:
+        - Event endpoints
+      operationId: delete_3
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+  /api/editions/{id}:
+    get:
+      tags:
+        - Editions endpoints
+      operationId: show_3
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+    put:
+      tags:
+        - Editions endpoints
+      operationId: update_3
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EditionSaveDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+    delete:
+      tags:
+        - Editions endpoints
+      operationId: delete_4
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+  /api/activities/{id}:
+    get:
+      tags:
+        - Activity endpoints
+      operationId: show_4
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+    put:
+      tags:
+        - Activity endpoints
+      operationId: update_4
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivitySaveDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+    delete:
+      tags:
+        - Activity endpoints
+      operationId: delete_5
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+  /api/users/:
+    get:
+      tags:
+        - User endpoints
+      description: Endpoint para listagem de usuários.
+      operationId: index
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+    post:
+      tags:
+        - User endpoints
+      description: Endpoint para criação de usuários.
+      operationId: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSaveDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+  /api/spaces/{editionId}:
+    post:
+      tags:
+        - Space endpoints
+      operationId: create_1
+      parameters:
+        - name: editionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpaceSaveDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+  /api/events/:
+    get:
+      tags:
+        - Event endpoints
+      operationId: index_2
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+    post:
+      tags:
+        - Event endpoints
+      operationId: create_2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventSaveDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+  /api/editions/:
+    get:
+      tags:
+        - Editions endpoints
+      operationId: index_3
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+    post:
+      tags:
+        - Editions endpoints
+      operationId: create_3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EditionSaveDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+  /api/activities/:
+    get:
+      tags:
+        - Activity endpoints
+      operationId: index_4
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+    post:
+      tags:
+        - Activity endpoints
+      operationId: create_4
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivitySaveDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+  /api/users/grant-authority/{id}:
+    patch:
+      tags:
+        - User endpoints
+      description: Endpoint para dar autoridade a um user
+      operationId: grantPrivilegesToUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+  /api/users/activity/{id}/{activity_id}:
+    patch:
+      tags:
+        - User endpoints
+      description: Endpoint para favoritar atividades.
+      operationId: updateFavoriteActivity
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: activity_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+  /api/editions/{id}/organizer/{organizer_id}:
+    patch:
+      tags:
+        - Editions endpoints
+      description: Endpoint para adição de organizador.
+      operationId: updateOrganizer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: organizer_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+  /api/spaces/{id}:
+    get:
+      tags:
+        - Space endpoints
+      operationId: show_1
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+  /api/spaces/:
+    get:
+      tags:
+        - Space endpoints
+      operationId: index_1
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+  /api/users/self:
+    delete:
+      tags:
+        - User endpoints
+      description: Endpoint para remoção de usuários.
+      operationId: delete_1
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  cause:
+                    type: object
+                    properties:
+                      stackTrace:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            classLoaderName:
+                              type: string
+                            moduleName:
+                              type: string
+                            moduleVersion:
+                              type: string
+                            methodName:
+                              type: string
+                            fileName:
+                              type: string
+                            lineNumber:
+                              type: integer
+                              format: int32
+                            nativeMethod:
+                              type: boolean
+                            className:
+                              type: string
+                      message:
+                        type: string
+                      suppressed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stackTrace:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  classLoaderName:
+                                    type: string
+                                  moduleName:
+                                    type: string
+                                  moduleVersion:
+                                    type: string
+                                  methodName:
+                                    type: string
+                                  fileName:
+                                    type: string
+                                  lineNumber:
+                                    type: integer
+                                    format: int32
+                                  nativeMethod:
+                                    type: boolean
+                                  className:
+                                    type: string
+                            message:
+                              type: string
+                            localizedMessage:
+                              type: string
+                      localizedMessage:
+                        type: string
+                  stackTrace:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        classLoaderName:
+                          type: string
+                        moduleName:
+                          type: string
+                        moduleVersion:
+                          type: string
+                        methodName:
+                          type: string
+                        fileName:
+                          type: string
+                        lineNumber:
+                          type: integer
+                          format: int32
+                        nativeMethod:
+                          type: boolean
+                        className:
+                          type: string
+                  message:
+                    type: string
+                  suppressed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        stackTrace:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              classLoaderName:
+                                type: string
+                              moduleName:
+                                type: string
+                              moduleVersion:
+                                type: string
+                              methodName:
+                                type: string
+                              fileName:
+                                type: string
+                              lineNumber:
+                                type: integer
+                                format: int32
+                              nativeMethod:
+                                type: boolean
+                              className:
+                                type: string
+                        message:
+                          type: string
+                        localizedMessage:
+                          type: string
+                  localizedMessage:
+                    type: string
+components:
+  schemas:
+    UserSaveDTO:
+      required:
+        - email
+        - password
+        - username
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+    ApiResponseDTO:
+      type: object
+      properties:
+        message:
+          type: string
+        data:
+          type: object
+    SpaceSaveDTO:
+      required:
+        - capacity
+        - location
+        - name
+        - resources
+      type: object
+      properties:
+        name:
+          type: string
+        location:
+          type: string
+        capacity:
+          type: integer
+          format: int32
+        resources:
+          type: array
+          items:
+            type: string
+    EventSaveDTO:
+      required:
+        - acronym
+        - description
+        - name
+        - url
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        acronym:
+          type: string
+        url:
+          type: string
+    EditionSaveDTO:
+      required:
+        - city
+        - editionNumber
+        - endDate
+        - event_id
+        - startDate
+        - year
+      type: object
+      properties:
+        year:
+          type: integer
+          format: int32
+        editionNumber:
+          type: integer
+          format: int32
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        city:
+          type: string
+        event_id:
+          type: integer
+          format: int64
+    ActivitySaveDTO:
+      required:
+        - date
+        - description
+        - edition_id
+        - endTime
+        - name
+        - space_id
+        - startTime
+        - type
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - PALESTRA
+            - PAINEL
+            - SESSAO_TECNICA
+        name:
+          type: string
+        description:
+          type: string
+        date:
+          type: string
+          format: date
+        startTime:
+          $ref: '#/components/schemas/LocalTime'
+        endTime:
+          $ref: '#/components/schemas/LocalTime'
+        edition_id:
+          type: integer
+          format: int64
+        space_id:
+          type: integer
+          format: int64
+    LocalTime:
+      type: object
+      properties:
+        hour:
+          type: integer
+          format: int32
+        minute:
+          type: integer
+          format: int32
+        second:
+          type: integer
+          format: int32
+        nano:
+          type: integer
+          format: int32
