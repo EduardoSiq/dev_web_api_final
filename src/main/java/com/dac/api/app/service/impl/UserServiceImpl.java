@@ -1,8 +1,10 @@
 package com.dac.api.app.service.impl;
 
 import com.dac.api.app.dto.UserSaveDTO;
+import com.dac.api.app.enums.UserRole;
 import com.dac.api.app.exception.ActivityNotFoundException;
 import com.dac.api.app.exception.UserFoundException;
+import com.dac.api.app.exception.UserNotAdminException;
 import com.dac.api.app.exception.UserNotFoundException;
 import com.dac.api.app.model.Activity;
 import com.dac.api.app.model.User;
@@ -11,6 +13,8 @@ import com.dac.api.app.repository.UserRepository;
 import com.dac.api.app.service.UserService;
 import com.dac.api.app.util.GenericMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,6 +28,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final ActivityRepository activityRepository;
     private final GenericMapper genericMapper;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public List<User> findAll() {
@@ -39,7 +44,7 @@ public class UserServiceImpl implements UserService {
                     throw new UserFoundException();
                 });
 
-        final var password = data.getPassword();
+        final var password = this.passwordEncoder.encode(data.getPassword());
         data.setPassword(password);
 
         final User user = genericMapper.toEntity(data, User.class);
@@ -74,6 +79,23 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteById(final Long id) {
         this.userRepository.deleteById(id);
+    }
+
+    @Override
+    public void deleteBySelf() {
+        final User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        this.userRepository.deleteById(user.getId());
+    }
+
+    @Override
+    public void grantAuthority(final Long userId, final UserRole newRole) {
+        final User authUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (authUser.getRole().stream().noneMatch(role -> role.equals(UserRole.ADMIN))) {
+            throw new UserNotAdminException();
+        }
+        final User user = this.userRepository.getReferenceById(userId);
+        user.getRole().add(newRole);
+        this.userRepository.save(user);
     }
 
     @Override

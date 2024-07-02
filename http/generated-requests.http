@@ -13,9 +13,8 @@ Password: admin
 ###
 GET http://localhost:8080/api/users/
 Content-Type: application/json
-Authorization: YWRtaW46YWRtaW4=
-
-<> 2024-07-01T154724.200.json
+Username: admin
+Password: admin
 
 ###
 POST http://localhost:8080/api/events/
@@ -50,9 +49,29 @@ Password: admin
 ###
 GET http://localhost:8080/api/editions/
 
+### SPACES
+POST http://localhost:8080/api/spaces/1
+Content-Type: application/json
+Username: organizer
+Password: organizer
+
+{
+  "name": "Hall of Fame",
+  "location": "Rio Centro",
+  "capacity": 1000,
+  "resources": []
+}
+
+<> 2024-07-01T154251.200.json
+
+###
+GET http://localhost:8080/api/spaces/
+
 ###  ACTIVITIES
 POST http://localhost:8080/api/activities/
 Content-Type: application/json
+Username: organizer
+Password: organizer
 
 {
   "type": "SESSAO_TECNICA",
@@ -69,27 +88,14 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8080/api/activities/
+Username: user
+Password: user
 
 <> 2024-07-01T154306.200.json
 
-### SPACES
-POST http://localhost:8080/api/spaces/1
-Content-Type: application/json
-
-{
-  "name": "Hall of Fame",
-  "location": "Rio Centro",
-  "capacity": 1000,
-  "resources": []
-}
-
-<> 2024-07-01T154251.200.json
-
 ###
-GET http://localhost:8080/api/spaces/
-
-
-###
-PATCH http://localhost:8080/api/users/1/activity/1
+PATCH http://localhost:8080/api/users/activity/1/1
+Username: user
+Password: user
 
 <> 2024-07-01T154729.200.json

@@ -4,6 +4,7 @@ import com.dac.api.app.dto.ApiResponseDTO;
 import com.dac.api.app.dto.UserResponseDTO;
 import com.dac.api.app.dto.UserSaveDTO;
 import com.dac.api.app.dto.UserShowResponseDTO;
+import com.dac.api.app.enums.UserRole;
 import com.dac.api.app.model.User;
 import com.dac.api.app.service.impl.UserServiceImpl;
 import com.dac.api.app.util.GenericMapper;
@@ -13,12 +14,12 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Tag(name = "User endpoints")
 @RestController
@@ -60,7 +61,6 @@ public class UserController {
 
     @PostMapping("/")
     @Operation(description = "Endpoint para criação de usuários.")
-    @Secured("ADMIN")
     public ResponseEntity<ApiResponseDTO> create(@Valid @RequestBody final UserSaveDTO entity) {
         try {
             final User user = this.userService.save(entity);
@@ -94,7 +94,30 @@ public class UserController {
         }
     }
 
-    @PatchMapping("/{id}/activity/{activity_id}")
+    @DeleteMapping("/self")
+    @Operation(description = "Endpoint para remoção de usuários.")
+    public ResponseEntity<ApiResponseDTO> delete() {
+        try {
+            this.userService.deleteBySelf();
+            return ResponseEntity.ok(new ApiResponseDTO("User deleted", null));
+        } catch (final Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponseDTO(e.getMessage(), null));
+        }
+    }
+
+    @PatchMapping("/grant-authority/{id}")
+    @Operation(description = "Endpoint para dar autoridade a um user")
+    public ResponseEntity<ApiResponseDTO> grantPrivilegesToUser(@PathVariable final Long id, @RequestBody final String newRole) {
+        try {
+            final UserRole userRole = Stream.of(UserRole.values()).filter(role -> role.getRole().equalsIgnoreCase(newRole)).findFirst().orElseThrow(RuntimeException::new);
+            this.userService.grantAuthority(id, userRole);
+            return ResponseEntity.ok(new ApiResponseDTO("role granted"));
+        } catch (final Exception e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ApiResponseDTO(e.getMessage(), null));
+        }
+    }
+
+    @PatchMapping("/activity/{id}/{activity_id}")
     @Operation(description = "Endpoint para favoritar atividades.")
     public ResponseEntity<ApiResponseDTO> updateFavoriteActivity(@PathVariable final Long id,
             @PathVariable final Long activity_id) {

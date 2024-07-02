@@ -10,4 +10,8 @@ import lombok.NoArgsConstructor;
 public class ApiResponseDTO {
     private String message;
     private Object data;
+
+    public ApiResponseDTO(final String message) {
+        this.message = message;
+    }
 }
