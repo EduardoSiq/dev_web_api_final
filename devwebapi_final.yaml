@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: OpenAPI definition
+  title: DevWebAPI_final definition
   version: v0
 servers:
   - url: http://localhost:8080
