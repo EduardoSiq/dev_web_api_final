@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: DevWebAPI_final definition
+  title: Event Management API definition
   version: v0
 servers:
   - url: http://localhost:8080

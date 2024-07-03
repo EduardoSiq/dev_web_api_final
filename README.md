@@ -21,24 +21,19 @@ Entre no diretório do projeto
   cd my-project
 ```
 
-Instale as dependências
-
-```bash
-  npm install
-```
-
-Inicie o servidor
-
-```bash
-  npm run start
-```
-
-Transfira o banco de dados
+Rodar migrations
 ```bash
   mvn clean flyway:migrate -Dflyway.configFiles=myFlywayConfig.conf install
 ```
 
-Rode a aplicação Springboot.
+Rodar aplicação
+```bash
+mvn spring-boot:run
+```
+## Documentação
+Para visualizar a documentação da API, baixe o arquivo [swagger.yaml](https://github.com/EduardoSiq/dev_web_api_final/blob/main/swagger_api.yaml) e utilize o [Swagger Editor](https://editor.swagger.io/) para executar o arquivo corretamente.
+
+
 ## Autores
 
 - [@Eduardo Siqueira](https://www.github.com/EduardoSiq)

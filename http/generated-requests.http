@@ -166,9 +166,7 @@ Password: user
 
 <> 2024-07-01T154306.200.json
 
-### Usuario tenta favoritar/desfavoritar atividade
+### Usuario favorita/desfavorita atividade {id/id_actvt}
 PATCH http://localhost:8080/api/users/activity/1/1
-Username: user
-Password: user
 
 <> 2024-07-01T154729.200.json
